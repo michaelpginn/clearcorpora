@@ -215,7 +215,7 @@ body {
 }
 
 .site-info-wrapper {
-  padding-top: 40px;
+  padding-block: 40px;
 }
 
 .footer-menu-wrapper + #site-info-wrapper {

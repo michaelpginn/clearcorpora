@@ -62,13 +62,7 @@
 								<a href="https://www.colorado.edu/strategicrelations">College of Arts and Sciences</a>
 							</div>
 						</div>
-
-						<!-- <h1><a href="/">CLEAR Corpora</a></h1>
-			            <br>
-			            <button type="button" class="btn btn-info" align="right">
-			          		<span class="glyphicon glyphicon-search"></span> 
-			          		<a href="/search-form/">Search Catalog</a>         
-			        		</button> -->
+						
 						{% if user.is_authenticated %}
 						<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
 						{% endif %}
@@ -120,14 +114,14 @@
 				<!-- /FOOTER MENU -->
 
 				<!-- SITE INFO -->
-				<div id="site-info-wrapper" class="section site-info-wrapper background-black">
+				<div id="site-info-wrapper" class="section background-black py-4">
 					<div id="site-info" class="site-info">
 						<div class="container">
 
 							<footer id="site-footer" class="row region region-site-info footer-2col">
 								<div id="site-footer-content" class="col-lg-8 col-md-8">
 									<div id="block-cu-site-info-site-info"
-										class="block block-cu-site-info has-block-title block-cu-site-info-site-info">
+										class="block-cu-site-info has-block-title block-cu-site-info-site-info">
 										<div class="block-inner-wrapper block-inner clearfix">
 											<h2 class="block-title"><a href="/lab/clear/">Computational Language and Education Research
 													CLEAR</a></h2>
