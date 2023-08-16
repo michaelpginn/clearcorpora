@@ -1,0 +1,21 @@
+{% extends 'corpusbank/base.html' %}
+
+{% block content %}
+	<div class="contactinfo">
+		<p>To access the discs in the LDC library, contact <a href="mailto:ghazaleh.kazeminejad@colorado.edu">Ghazaleh Kazeminejad.</a></p>
+		<p><b>Note:</b> You need to have a <i>"verbs"</i> or <i>"babel"</i> account to access the corpora that are on the verbs server.</p>
+	</div>
+	<div>  </div>
+	<div>
+		<br><br>
+		<b>List of all corpora:</b>
+		<hr>
+	</div>
+	
+	{% for post in posts %}
+		<div class="post">
+			<h3><a href="{% url post_detail pk=post.pk %}"> {{ post.name }} </a> </h3>
+			<p> Catalog ID: {{ post.catid }}  </p>
+		</div>
+	{% endfor %}
+{% endblock %}

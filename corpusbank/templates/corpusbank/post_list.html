@@ -1,0 +1,33 @@
+{% extends 'corpusbank/base.html' %}
+
+{% block content %}
+<h1 class="page-title title " id="page-title">
+	All Corpora
+</h1>
+
+<p>To access the discs in the LDC library, contact <a href="mailto:michael.ginn@colorado.edu">Michael Ginn</a>.</p>
+<p>You need to have a <i>verbs</i> account to access the corpora that are on the verbs server.</p>
+
+<div style="overflow-y:auto;max-height: 610px; border: 1px solid rgba(128, 128, 128, 0.333)">
+	<table style="border: none;">
+		<thead>
+			<tr>
+				<th>Corpus Name</th>
+				<th>Language</th>
+				<th>Catalog ID</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for post in posts %}
+			<tr onclick="window.location=`{% url 'post_detail' pk=post.pk %}`" class="corpora-list-item">
+				<td>{{ post.name }}</td>
+				<td>{{ post.language }}</td>
+				<td>{{ post.catid }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+<div class="mt-3 text-secondary fw-bold text-align-center">{{ posts|length }} total corpora</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% load staticfiles  %}
+<!doctype html>
+<html lang="en">
+    <head>
+    	<meta charset="utf-8">
+        <title>CLEAR Corpora</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{% static 'css/corpora.css' %}">
+		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+		
+		<script>
+			if (Spree === undefined) {
+			var Spree = {}
+			}
+			if (Spree.routes == undefined) {
+			Spree.routes = {}
+			}
+			Spree.routes.states_search = "/api/states"
+		</script>
+    </head>
+    <body class="one-col">
+        <div class="page-header">
+            <h1><a href={% url post_list %}>CLEAR Corpora</a></h1>
+            <br>
+            <button type="button" class="btn btn-info" align="right">
+          		<span class="glyphicon glyphicon-search"></span> 
+          		<a href={% url search_form %}>Search Catalog</a>         
+        	</button>
+            {% if user.is_authenticated %}
+    			<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+			{% endif %}
+        </div>
+
+		<div class="content container">
+		  <div class="row">
+		    <div class="col-md-8">
+		      {% block content %}
+		      {% endblock %}
+	        </div>
+		  </div>
+	    </div>
+
+    </body>
+</html>

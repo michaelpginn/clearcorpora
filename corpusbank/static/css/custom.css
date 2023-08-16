@@ -1,0 +1,29 @@
+.corpora-list-item {
+  cursor: pointer;
+}
+
+.corpora-list-item:hover {
+  background-color: rgb(250, 248, 248);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border-inline: none !important;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: white;
+}
+
+tfoot {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  background-color: white;
+}

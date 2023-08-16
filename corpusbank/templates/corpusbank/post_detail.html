@@ -1,0 +1,43 @@
+{% extends 'corpusbank/base.html' %}
+
+{% block content %}
+    <div class="post">
+    	<h1>{{ post.name }}</h1>
+    	<p>Cataloug ID: {{ post.catid }}</p>
+    	
+    	{% if user.is_authenticated %}
+     		<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		{% endif %}
+
+    	{% if post.language %}
+            <div>
+                <p> Language(s): {{ post.language }} </p>
+            </div>
+        {% endif %}
+
+        {% if post.project %}
+            <div>
+                <p> Project(s): {{ post.project }} </p>
+            </div>
+        {% endif %}
+
+        {% if post.verbsaddress %}
+            <div>
+                <p> Address(es) on Verbs: {{ post.verbsaddress }} </p>
+            </div>
+        {% endif %}
+        
+        {% if post.physical %}
+            <div>
+                <p> Physical Disc in the library: {{ post.physical }} </p>
+            </div>
+        {% endif %}
+
+        {% if post.downloadable %}
+        	<div>
+        		<p> Downloadable from the LDC Intranet </p>
+        	</div>
+
+        {% endif %}
+    </div>
+{% endblock %}

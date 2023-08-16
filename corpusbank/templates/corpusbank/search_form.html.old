@@ -1,0 +1,229 @@
+{% extends 'corpusbank/base.html' %}
+
+{% block content %}
+	{% if error %}
+        <p style="color: red;">Please submit a search term.</p>
+    {% endif %}
+    <h1>Search the Catalog</h1>
+	<form action="{% url search %}" method="get" id="corpus_search">
+		<div class="row">
+			<div class="alpha six columns">
+				<label class="seearch_label" for="q_name">Corpus Name:</label><br>
+				<input type="text" name="q[name]" class="fullwidth" id="q_name_cont" size="30">
+			</div>
+			<div class="omega six columns">
+				<label class="seearch_label" for="q_catid">Catalog Number:</label><br>
+				<input type="text" name="q[catid]" class="fullwidth" id="q_catid_cont" size="30">
+			</div>
+		</div>
+		<div class="row">
+			<div class="alpha four columns">
+				<label class="seearch_label" for="q_languages">Language(s)</label><br>
+				<input type="hidden" name="q[languages][]" value="">
+				<select class="fullwidth" id="q_languages_id_in" multiple="multiple" name="q[languages][]" size="6">
+					<option value="Albanian">Albanian</option>
+					<option value="Amharic">Amharic</option>
+					<option value="Arabic">Arabic</option>
+					<!-- <option value="Assamese">Assamese</option> -->
+					<option value="Baharna Arabic">Baharna Arabic</option>
+					<!-- <option value="Bambara">Bambara</option> -->
+					<!-- <option value="Bengali">Bengali</option>
+					<option value="Bosnian">Bosnian</option> -->
+					<option value="Bulgarian">Bulgarian</option>
+					<option value="Catalan">Catalan</option>
+					<!-- <option value="Central Khmer">Central Khmer</option> -->
+					<option value="Chinese">Chinese</option>
+					<!-- <option value="Congo Swahili">Congo Swahili</option> -->
+					<option value="Croatian">Croatian</option>
+					<option value="Czech">Czech</option>
+					<option value="Danish">Danish</option>
+					<option value="Dari">Dari</option>
+					<option value="Dutch">Dutch</option>
+					<!-- <option value="Eastern Maninkakan">Eastern Maninkakan</option> -->
+					<option value="Egyptian Arabic">Egyptian Arabic</option>
+					<option value="English">English</option>
+					<option value="Estonian">Estonian</option>
+					<option value="French">French</option>
+					<!-- <option value="Georgian">Georgian</option> -->
+					<option value="German">German</option>
+					<!-- <option value="Gulf Arabic">Gulf Arabic</option> -->
+					<!-- <option value="Haitian">Haitian</option> -->
+					<option value="Hausa">Hausa</option>
+					<option value="Hindi">Hindi</option>
+					<!-- <option value="Hungarian">Hungarian</option> -->
+					<!-- <option value="Indonesian">Indonesian</option> -->
+					<!-- <option value="Iranian Persian">Iranian Persian</option> -->
+					<option value="Italian">Italian</option>
+					<option value="Japanese">Japanese</option>
+					<option value="Korean">Korean</option>
+					<!-- <option value="3121">Kumarbhag Paharia</option> -->
+					<!-- <option value="Lao">Lao</option> -->
+					<option value="Latin">Latin</option>
+					<option value="Lithuanian">Lithuanian</option>
+					<!-- <option value="Lucumi">Lucumi</option> -->
+					<!-- <option value="Mahou">Mahou</option> -->
+					<!-- <option value="4060">Mal Paharia</option> -->
+					<option value="Mandarin Chinese">Mandarin Chinese</option>
+					<!-- <option value="Mesopotamian Arabic">Mesopotamian Arabic</option> -->
+					<!-- <option value="Min Nan Chinese">Min Nan Chinese</option> -->
+					<option value="Modern Greek">Modern Greek (1453-)</option>
+					<!-- <option value="Moroccan Arabic">Moroccan Arabic</option> -->
+					<option value="Ngomba">Ngomba</option>
+					<option value="North Levantine Arabic">North Levantine Arabic</option>
+					<!-- <option value="North Mesopotamian Arabic">North Mesopotamian Arabic</option> -->
+					<!-- <option value="Northern Khmer">Northern Khmer</option> -->
+					<option value="Northern Uzbek">Northern Uzbek</option>
+					<option value="Norwegian">Norwegian</option>
+					<!-- <option value="4760">Norwegian Bokmål</option> -->
+					<option value="Norwegian Nynorsk">Norwegian Nynorsk</option>
+					<!-- <option value="Panjabi">Panjabi</option> -->
+					<option value="Persian">Persian</option>
+					<!-- <option value="Polish">Polish</option> -->
+					<option value="Portuguese">Portuguese</option>
+					<!-- <option value="Pashto">Pashto</option> -->
+					<!-- <option value="Romanian">Romanian</option> -->
+					<option value="Russian">Russian</option>
+					<!-- <option value="Sanskrit">Sanskrit</option> -->
+					<!-- <option value="4052">Sauria Paharia</option> -->
+					<option value="Scottish Gaelic">Scottish Gaelic</option>
+					<!-- <option value="Sea Island Creole English">Sea Island Creole English</option> -->
+					<option value="Serbian">Serbian</option>
+					<option value="Slovenian">Slovenian</option>
+					<option value="South Levantine Arabic">South Levantine Arabic</option>
+					<option value="Spanish">Spanish</option>
+					<option value="Standard Arabic">Standard Arabic</option>
+					<option value="Standard Malay">Standard Malay</option>
+					<!-- <option value="Swahili">Swahili (individual language)</option> -->
+					<!-- <option value="6126">Swahili (macrolanguage)</option> -->
+					<option value="Swedish">Swedish</option>
+					<!-- <option value="Tagalog">Tagalog</option> -->
+					<option value="Tamil">Tamil</option>
+					<!-- <option value="Thai">Thai</option> -->
+					<!-- <option value="Tigrinya">Tigrinya</option> -->
+					<option value="Tosk Albanian">Tosk Albanian</option>
+					<!-- <option value="Trinidadian Creole English">Trinidadian Creole English</option> -->
+					<option value="Turkish">Turkish</option>
+					<!-- <option value="Ukrainian">Ukrainian</option> -->
+					<option value="Urdu">Urdu</option>
+					<option value="Uzbek">Uzbek</option>
+					<!-- <option value="Vervet Monkey Calls">Vervet Monkey Calls</option> -->
+					<option value="Vietnamese">Vietnamese</option>
+					<!-- <option value="Wu Chinese">Wu Chinese</option> -->
+					<!-- <option value="Yemba">Yemba</option> -->
+					<!-- <option value="Yoruba">Yoruba</option> -->
+					<!-- <option value="Yue Chinese">Yue Chinese</option> -->
+				</select>
+			</div>
+			<!-- <div class="four columns">
+				<label class="search_label" for="q_dcmi_sources">Type</label><br>
+				<input name="q[dcmi_types_id_in][]" type="hidden" value="">
+				<select class="fullwidth" id="q_dcmi_types_id_in" multiple="multiple" name="q[dcmi_types_id_in][]" size="6">
+					<option value="1">Collection</option>
+					<option value="2">Dataset</option>
+					<option value="3">Event</option>
+					<option value="4">Image</option>
+					<option value="5">InteractiveResource</option>
+					<option value="6">MovingImage</option>
+					<option value="7">PhysicalObject</option>
+					<option value="8">Service</option>
+					<option value="9">Software</option>
+					<option value="10">Sound</option>
+					<option value="11">StillImage</option>
+					<option value="12">Text</option>
+				</select>
+			</div>
+			<div class="omega four columns">
+				<label class="search_label" for="q_research_projects">Research Project(s)</label>
+				<br>
+				<input name="q[projects_id_in][]" type="hidden" value="">
+				<select class="fullwidth" id="q_projects_id_in" multiple="multiple" name="q[projects_id_in][]" size="6">
+					<option value="1">ACE</option>
+					<option value="2">American National Corpus (ANC)</option>
+					<option value="3">AQUAINT</option>
+					<option value="4">ATIS</option>
+					<option value="5">BEST</option>
+					<option value="6">BOLT</option>
+					<option value="7">Communicator</option>
+					<option value="8">CoNLL</option>
+					<option value="9">CoNNL</option>
+					<option value="10">DARPA-CSR</option>
+					<option value="11">DASL</option>
+					<option value="12">DEFT</option>
+					<option value="13">DOE/IRS2008-0256</option>
+					<option value="14">DUC</option>
+					<option value="15">EARS</option>
+					<option value="16">GALE</option>
+					<option value="17">GENOA</option>
+					<option value="18">HARD</option>
+					<option value="19">HAVIC</option>
+					<option value="20">Hub4</option>
+					<option value="21">Hub5-LVCSR</option>
+					<option value="22">JANUS</option>
+					<option value="23">LCTL</option>
+					<option value="24">LID</option>
+					<option value="25">Linguistic Atlas Project</option>
+					<option value="26">Machine Reading</option>
+					<option value="27">MADCAT</option>
+					<option value="28">MALACH</option>
+					<option value="29">MDE</option>
+					<option value="30">MED</option>
+					<option value="31">MED-11</option>
+					<option value="32">MIXER</option>
+					<option value="33">MIXER 8</option>
+					<option value="34">MIXER-7</option>
+					<option value="35">MSE</option>
+					<option value="36">MT-06</option>
+					<option value="37">MT08</option>
+					<option value="38">MT09</option>
+					<option value="39">MT12</option>
+					<option value="40">MUC</option>
+					<option value="41">NIST Automatic Meeting Recognition</option>
+					<option value="42">NIST LRE</option>
+					<option value="43">NIST MT</option>
+					<option value="44">NIST SRE</option>
+					<option value="45">NTCIR</option>
+					<option value="46">OntoNotes</option>
+					<option value="47">OpenHaRT</option>
+					<option value="48">PHANOTICS</option>
+					<option value="49">RATS</option>
+					<option value="50">Reflex-LCTL</option>
+					<option value="51">REFLEX-MTE</option>
+					<option value="52">RM</option>
+					<option value="53">ROAR</option>
+					<option value="54">RT</option>
+					<option value="55">SCALE 2013 Robust Speaker Recognition</option>
+					<option value="56">SCIL</option>
+					<option value="57">SemEval</option>
+					<option value="58">SID</option>
+					<option value="59">SIGHAN</option>
+					<option value="60">SPINE</option>
+					<option value="61">SRE-12</option>
+					<option value="62">STD</option>
+					<option value="63">TAC</option>
+					<option value="64">Talkbank</option>
+					<option value="65">TDT</option>
+					<option value="66">TERN</option>
+					<option value="67">TIDES</option>
+					<option value="68">Tipster</option>
+					<option value="69">Transtac</option>
+					<option value="70">TREC</option>
+					<option value="71">TRECVid</option>
+					<option value="72">VACE</option>
+					<option value="73">VAST</option>
+					<option value="74">ViperToxin</option>
+					<option value="75">LORELEI </option>
+					<option value="76">NIST OpenSAD</option>
+				</select>
+			</div> -->
+		</div>
+		<div class="row">
+			<div class="alpha omega twelve columns" id="search_buttons">
+				<div class="omega four columns" style="padding-top:20px">
+      				<input type="submit" value="Search Catalog">
+      				<button type="reset"><span class="translation_missing" title="translation missing: en.spree.clear">Clear</span></button>
+    			</div>
+			</div>
+		</div>
+
+    </form>
+{% endblock %}

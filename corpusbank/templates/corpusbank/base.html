@@ -1,0 +1,161 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en"
+	class="cssgradients multiplebgs opacity rgba hsla supports fontface generatedcontent textshadow cssanimations backgroundsize borderimage borderradius boxshadow csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox cssreflections csstransforms csstransforms3d csstransitions svgasimg js">
+
+<head>
+	<meta charset="utf-8">
+	<title>CLEAR Corpora Listing</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="{% static 'css/ucb.css' %}">
+	<link rel="stylesheet" href="{% static 'css/rise.css' %}">
+	<link rel="stylesheet" href="{% static 'css/system-menus.css' %}">
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Condensed:700" rel="stylesheet">
+
+	<script>
+		if (Spree === undefined) {
+			var Spree = {}
+		}
+		if (Spree.routes == undefined) {
+			Spree.routes = {}
+		}
+		Spree.routes.states_search = "/api/states"
+	</script>
+</head>
+
+<body
+	class="html not-front not-logged-in one-sidebar sidebar-second page-node page-node- page-node-219 node-type-page layout-default headings-bold page-title-image-background-transparent layout-responsive max-width-1200 primary-sidebar-second express-site-type-default banner-dark layout-wide">
+	<div class="page-wrapper">
+		<div class="page page node-published">
+			<div class="brand-bar brand-bar-color-black no-underline">
+				<div class="container">
+					<div class="brand-bar-container">
+						<div class="brand-logo">
+							<a href="http://www.colorado.edu"><img
+									src="https://www.colorado.edu/brand/profiles/express/themes/ucb/images/cu-boulder-logo-text-black.svg"
+									alt="University of Colorado Boulder"></a>
+						</div>
+						<div class="brand-links">
+						</div>
+						<div class="search-toggle-wrapper">
+							<a href="https://www.colorado.edu/search" id="search-toggle" class="search-toggle" aria-haspopup="true"
+								aria-expanded="false" aria-controls="search" aria-label="Search"><i class="fa fa-search fa-fw"></i><span
+									class="element-invisible">Search </span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="header-wrapper" class="section header-wrapper no-underline cu-header ">
+				<div class="container">
+					<header class="ucb header">
+						<div class="site-name-wrapper">
+							<div class="site-name">
+								<a href="/" title="Home" class="header__site-link" rel="home"><span>CLEAR Corpora Listing</span></a>
+							</div>
+							<div class="affiliation">
+								<a href="https://www.colorado.edu/strategicrelations">College of Arts and Sciences</a>
+							</div>
+						</div>
+
+						<!-- <h1><a href="/">CLEAR Corpora</a></h1>
+			            <br>
+			            <button type="button" class="btn btn-info" align="right">
+			          		<span class="glyphicon glyphicon-search"></span> 
+			          		<a href="/search-form/">Search Catalog</a>         
+			        		</button> -->
+						{% if user.is_authenticated %}
+						<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+						{% endif %}
+					</header>
+				</div>
+			</div>
+
+			<div id="navigation-wrapper" class="navigation-wrapper section no-underline">
+
+				<!-- Main menu -->
+				<div id="main-menu-wrapper" class="section">
+					<div id="navigation" class="container">
+						<div class="nav-inner clearfix">
+							<nav role="navigation" tabindex="-1" class="region region-menu">
+
+								<div>
+									<h2 class="element-invisible">Main menu</h2>
+									<ul class="links inline clearfix" id="main-menu">
+										<li class="home-link first"><a href="/" id="home-link" class="home-link first"><span
+													class="glyphicon glyphicon-home"></span> </a></li>
+										<li class=""><a href="/search-form">Search</a></li>
+										<li><a href="https://www.colorado.edu/lab/clear">CLEAR Site</a></li>
+									</ul>
+								</div>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<!-- /Main menu -->
+				<!-- Secondary menu under main menu -->
+			</div>
+
+
+
+			<div class="page-content">
+				<div class="section main-content-wrapper" id="main-content-wrapper">
+					<div class="container">
+						{% block content %}
+						{% endblock %}
+					</div>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<div id="footer-section" class="footer-section background-gray-800">
+				<!-- FOOTER -->
+				<!-- /FOOTER -->
+
+				<!-- FOOTER MENU -->
+				<!-- /FOOTER MENU -->
+
+				<!-- SITE INFO -->
+				<div id="site-info-wrapper" class="section site-info-wrapper background-black">
+					<div id="site-info" class="site-info">
+						<div class="container">
+
+							<footer id="site-footer" class="row region region-site-info footer-2col">
+								<div id="site-footer-content" class="col-lg-8 col-md-8">
+									<div id="block-cu-site-info-site-info"
+										class="block block-cu-site-info has-block-title block-cu-site-info-site-info">
+										<div class="block-inner-wrapper block-inner clearfix">
+											<h2 class="block-title"><a href="/lab/clear/">Computational Language and Education Research
+													CLEAR</a></h2>
+											<div class="content">
+												<p>The Center for Computational Language and Education Research c/o Martha Palmer<br>UCB 295
+													Hellems&nbsp;<br>Department of Linguistics<br>University of Colorado<br>Boulder, Colorado,
+													80309</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div id="cu-footer" class="col-lg-4 col-md-4">
+									<p><a href="//www.colorado.edu"><img
+												src="https://www.colorado.edu/lab/clear/profiles/express/themes/ucb/images/beboulder/be-boulder-white.svg"
+												alt="University of Colorado Boulder" class="beboulder"></a></p>
+									<p><strong><a href="http://www.colorado.edu" class="cu-boulder-homepage-link">University of Colorado
+												Boulder</a></strong><br>© Regents of the University of Colorado<br>
+										<span class="required-links"><a href="http://www.colorado.edu/about/privacy-statement">Privacy</a> •
+											<a href="http://www.colorado.edu/about/legal-trademarks">Legal &amp; Trademarks</a> • <a
+												href="http://www.colorado.edu/map">Campus Map</a></span>
+									</p>
+								</div>
+							</footer>
+						</div>
+					</div>
+				</div>
+				<!-- /SITE INFO -->
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

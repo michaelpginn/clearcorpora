@@ -1,0 +1,16 @@
+{% extends 'corpusbank/base.html' %}
+
+{% block content %}
+	<!-- <p>You searched for: <strong>{{ query }}</strong></p> -->
+	{% if myresults %}           
+        <p>Found {{ myresults|length }} corpora:</p>
+        <ul>               
+            {% for c in myresults %}               
+            	<!-- <li> {{ c.name }} </li>  -->
+            	<li><a href="{% url post_detail pk=c.pk %}">{{ c.name }} </a></li>              
+            {% endfor %}           
+        </ul>       
+    {% else %}           
+        <p>No corpus matched your search criteria.</p>       
+    {% endif %} 
+{% endblock %}
