@@ -56,7 +56,7 @@
 					<header class="ucb header">
 						<div class="site-name-wrapper">
 							<div class="site-name">
-								<a href="/" title="Home" class="header__site-link" rel="home"><span>CLEAR Corpora Listing</span></a>
+								<a href={% url 'post_list' %} title="Home" class="header__site-link" rel="home"><span>CLEAR Corpora Listing</span></a>
 							</div>
 							<div class="affiliation">
 								<a href="https://www.colorado.edu/strategicrelations">College of Arts and Sciences</a>
@@ -87,8 +87,7 @@
 								<div>
 									<h2 class="element-invisible">Main menu</h2>
 									<ul class="links inline clearfix" id="main-menu">
-										<li class="home-link first"><a href={% url 'post_list' %} id="home-link" class="home-link first"><span
-													class="glyphicon glyphicon-home"></span> </a></li>
+										<li class="home-link first"><a href={% url 'post_list' %} id="home-link" class="home-link first">Home</a></li>
 										<li class=""><a href={% url 'search_form' %}>Search</a></li>
 										<li><a href="https://www.colorado.edu/lab/clear">CLEAR Site</a></li>
 									</ul>
